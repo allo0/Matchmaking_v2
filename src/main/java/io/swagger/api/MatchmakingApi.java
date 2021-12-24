@@ -33,20 +33,19 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-12-24T07:41:24.008Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-12-24T10:27:08.862Z[GMT]")
 @Validated
 public interface MatchmakingApi {
 
     @Operation(summary = "Compute the pairs for the next game round", description = "", tags={ "Pairs" })
-    @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "Successful response", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UserPairAssignment.class)))),
-        
-        @ApiResponse(responseCode = "405", description = "Invalid input") })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful response", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UserPairAssignment.class)))),
+
+            @ApiResponse(responseCode = "405", description = "Invalid input") })
     @RequestMapping(value = "/matchmaking",
-        produces = { "application/json" }, 
-        consumes = { "application/json" }, 
-        method = RequestMethod.POST)
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.POST)
     ResponseEntity<List<UserPairAssignment>> matchmakingPost(@Parameter(in = ParameterIn.DEFAULT, description = "The body is a JSON structure having the following parts (a) global user score (b) pairwise user scores and (c) user-to-user collaboration intentions. The output of the computation is a user pair assignment matrix.", required=true, schema=@Schema()) @Valid @RequestBody MatchmakingBody body);
 
 }
-

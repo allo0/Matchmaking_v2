@@ -7,6 +7,8 @@ import io.swagger.model.UserCollaborationIntentions;
 import io.swagger.model.UserPairwiseScore;
 import io.swagger.model.UserScore;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -15,21 +17,32 @@ import javax.validation.constraints.*;
  * MatchmakingBody
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-12-24T07:41:24.008Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-12-24T10:37:04.670Z[GMT]")
 
 
 public class MatchmakingBody   {
   @JsonProperty("userGlobalScores")
-  private UserScore userGlobalScores = null;
+  @Valid
+  private List<UserScore> userGlobalScores = null;
 
   @JsonProperty("userPairwiseScore")
-  private UserPairwiseScore userPairwiseScore = null;
+  @Valid
+  private List<UserPairwiseScore> userPairwiseScore = null;
 
   @JsonProperty("userCollaborationIntentions")
-  private UserCollaborationIntentions userCollaborationIntentions = null;
+  @Valid
+  private List<UserCollaborationIntentions> userCollaborationIntentions = null;
 
-  public MatchmakingBody userGlobalScores(UserScore userGlobalScores) {
+  public MatchmakingBody userGlobalScores(List<UserScore> userGlobalScores) {
     this.userGlobalScores = userGlobalScores;
+    return this;
+  }
+
+  public MatchmakingBody addUserGlobalScoresItem(UserScore userGlobalScoresItem) {
+    if (this.userGlobalScores == null) {
+      this.userGlobalScores = new ArrayList<UserScore>();
+    }
+    this.userGlobalScores.add(userGlobalScoresItem);
     return this;
   }
 
@@ -38,18 +51,25 @@ public class MatchmakingBody   {
    * @return userGlobalScores
    **/
   @Schema(description = "")
-  
-    @Valid
-    public UserScore getUserGlobalScores() {
+  @Valid
+  public List<UserScore> getUserGlobalScores() {
     return userGlobalScores;
   }
 
-  public void setUserGlobalScores(UserScore userGlobalScores) {
+  public void setUserGlobalScores(List<UserScore> userGlobalScores) {
     this.userGlobalScores = userGlobalScores;
   }
 
-  public MatchmakingBody userPairwiseScore(UserPairwiseScore userPairwiseScore) {
+  public MatchmakingBody userPairwiseScore(List<UserPairwiseScore> userPairwiseScore) {
     this.userPairwiseScore = userPairwiseScore;
+    return this;
+  }
+
+  public MatchmakingBody addUserPairwiseScoreItem(UserPairwiseScore userPairwiseScoreItem) {
+    if (this.userPairwiseScore == null) {
+      this.userPairwiseScore = new ArrayList<UserPairwiseScore>();
+    }
+    this.userPairwiseScore.add(userPairwiseScoreItem);
     return this;
   }
 
@@ -58,18 +78,25 @@ public class MatchmakingBody   {
    * @return userPairwiseScore
    **/
   @Schema(description = "")
-  
-    @Valid
-    public UserPairwiseScore getUserPairwiseScore() {
+  @Valid
+  public List<UserPairwiseScore> getUserPairwiseScore() {
     return userPairwiseScore;
   }
 
-  public void setUserPairwiseScore(UserPairwiseScore userPairwiseScore) {
+  public void setUserPairwiseScore(List<UserPairwiseScore> userPairwiseScore) {
     this.userPairwiseScore = userPairwiseScore;
   }
 
-  public MatchmakingBody userCollaborationIntentions(UserCollaborationIntentions userCollaborationIntentions) {
+  public MatchmakingBody userCollaborationIntentions(List<UserCollaborationIntentions> userCollaborationIntentions) {
     this.userCollaborationIntentions = userCollaborationIntentions;
+    return this;
+  }
+
+  public MatchmakingBody addUserCollaborationIntentionsItem(UserCollaborationIntentions userCollaborationIntentionsItem) {
+    if (this.userCollaborationIntentions == null) {
+      this.userCollaborationIntentions = new ArrayList<UserCollaborationIntentions>();
+    }
+    this.userCollaborationIntentions.add(userCollaborationIntentionsItem);
     return this;
   }
 
@@ -78,13 +105,12 @@ public class MatchmakingBody   {
    * @return userCollaborationIntentions
    **/
   @Schema(description = "")
-  
-    @Valid
-    public UserCollaborationIntentions getUserCollaborationIntentions() {
+  @Valid
+  public List<UserCollaborationIntentions> getUserCollaborationIntentions() {
     return userCollaborationIntentions;
   }
 
-  public void setUserCollaborationIntentions(UserCollaborationIntentions userCollaborationIntentions) {
+  public void setUserCollaborationIntentions(List<UserCollaborationIntentions> userCollaborationIntentions) {
     this.userCollaborationIntentions = userCollaborationIntentions;
   }
 
@@ -99,8 +125,8 @@ public class MatchmakingBody   {
     }
     MatchmakingBody matchmakingBody = (MatchmakingBody) o;
     return Objects.equals(this.userGlobalScores, matchmakingBody.userGlobalScores) &&
-        Objects.equals(this.userPairwiseScore, matchmakingBody.userPairwiseScore) &&
-        Objects.equals(this.userCollaborationIntentions, matchmakingBody.userCollaborationIntentions);
+            Objects.equals(this.userPairwiseScore, matchmakingBody.userPairwiseScore) &&
+            Objects.equals(this.userCollaborationIntentions, matchmakingBody.userCollaborationIntentions);
   }
 
   @Override
@@ -112,7 +138,7 @@ public class MatchmakingBody   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MatchmakingBody {\n");
-    
+
     sb.append("    userGlobalScores: ").append(toIndentedString(userGlobalScores)).append("\n");
     sb.append("    userPairwiseScore: ").append(toIndentedString(userPairwiseScore)).append("\n");
     sb.append("    userCollaborationIntentions: ").append(toIndentedString(userCollaborationIntentions)).append("\n");
